@@ -1,21 +1,23 @@
 ﻿namespace HotelSystem.Data.Models
 {
-    using System.Collections;
     using System.Collections.Generic;
 
 
     public class Room
     {
+        private ICollection<Reservation> reservations;
+
         public Room()
         {
             this.reservations = new HashSet<Reservation>();
         }
 
-        private ICollection<Reservation> reservations;
-
         public int Id { get; set; }
+
         public int Price { get; set; }
+
         public int NumberOfPeople { get; set; }
+
         public string Description { get; set; }
 
         Hotel Hotel { get; set; }
@@ -29,7 +31,5 @@
             get { return this.reservations; }
             set { this.reservations = value; }
         }
-
-
     }
 }

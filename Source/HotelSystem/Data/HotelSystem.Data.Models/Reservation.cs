@@ -1,6 +1,7 @@
 ﻿namespace HotelSystem.Data.Models
 {
     using System;
+
     public class Reservation
     {
         public int Id { get; set; }
@@ -14,6 +15,5 @@
 
         Room Room { get; set; }
         public int RoomId { get; set; }
-
     }
 }
