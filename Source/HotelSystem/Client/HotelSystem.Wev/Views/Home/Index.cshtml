@@ -1,0 +1,26 @@
+﻿@model HotelSystem.Wev.ViewModels.Home.IndexViewModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h1>Welcome to Hotel System!</h1>
+
+<div>
+    <h2>Hotels</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Stars</th>
+        </tr>
+        @foreach (var hotel in Model.Hotels)
+        {
+           <tr>
+               <td>@hotel.Name</td>
+               <td>@hotel.Address</td>
+               <td>@hotel.Stars</td>
+           </tr>
+        }
+    </table>
+</div>

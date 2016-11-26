@@ -4,12 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using HotelSystem.Data;
+
 namespace HotelSystem.Web.Controllers
 {
-    public class HomeController : Controller
+    class HomeController : Controller
     {
         public ActionResult Index()
         {
+            HotelSystemDbContext db = new HotelSystemDbContext();
+
+
             return View();
         }
 

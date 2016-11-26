@@ -9,9 +9,9 @@
     {
         IEnumerable<T> GetAll(
             Expression<Func<T, bool>> filterExpression,
-            Expression<Func<T, object>> orderBy,
-            int? page,
-            int? pageSize);
+            Expression<Func<T, int>> orderBy,
+            int page,
+            int pageSize);
 
         T GetById(object id);
 

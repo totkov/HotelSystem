@@ -4,14 +4,18 @@
 
     public class User
     {
-        private ICollection<Reservation> reservstions;
+        private ICollection<Reservation> reservations;
 
         public User()
         {
-            this.reservstions = new HashSet<Reservation>();
+            this.reservations = new HashSet<Reservation>();
         }
 
         public int Id { get; set; }
+
+        public string Username { get; set; }
+
+        public string Password { get; set; }
 
         public string FirstName { get; set; }
 
@@ -23,8 +27,8 @@
 
         public virtual ICollection<Reservation> Reservations
         {
-            get { return this.reservstions; }
-            set { this.reservstions = value; }
+            get { return this.reservations; }
+            set { this.reservations = value; }
         }
     }
 }

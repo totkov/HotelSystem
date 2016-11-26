@@ -3,10 +3,10 @@
     using System.Data.Entity;
     using HotelSystem.Data.Models;
 
-    class HotelSystemDbContext : DbContext
+    public class HotelSystemDbContext : DbContext
     {
         public HotelSystemDbContext()
-            : base()
+            : base("HotelSystemDbConnection")
         {
         }
 
