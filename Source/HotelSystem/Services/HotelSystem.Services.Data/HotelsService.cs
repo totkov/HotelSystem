@@ -12,9 +12,10 @@
         private IRepository<Hotel> hotels;
         private IUnitOfWork uow;
 
-        public HotelsService(IRepository<Hotel> hotels)
+        public HotelsService(IRepository<Hotel> hotels, IUnitOfWork uow)
         {
             this.hotels = hotels;
+            this.uow = uow;
         }
 
         public void AddHotel(Hotel hotel)
