@@ -17,7 +17,8 @@
         {
             HotelSystemDbContext dbContext = new HotelSystemDbContext();
             IRepository<Hotel> hotels = new EfRepository<Hotel>(dbContext);
-            return new HotelsService(hotels);
+            IUnitOfWork uow = new EfUnitOfWork(dbContext);
+            return new HotelsService(hotels, uow);
         }
 
         public static UsersService GetUsersService()
