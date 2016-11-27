@@ -10,10 +10,17 @@
     public class HotelsService
     {
         private IRepository<Hotel> hotels;
+        private IUnitOfWork uow;
 
         public HotelsService(IRepository<Hotel> hotels)
         {
             this.hotels = hotels;
+        }
+
+        public void AddHotel(Hotel hotel)
+        {
+            this.hotels.Add(hotel);
+            this.uow.Commit();
         }
 
         public IEnumerable<Hotel> GetAllHotels(
@@ -22,7 +29,7 @@
             int? page = null,
             int? pageSize = null)
         {
-            Expression <Func<Hotel, bool>> _filterExpression = filterExpression != null ? filterExpression : (h => true);
+            Expression<Func<Hotel, bool>> _filterExpression = filterExpression != null ? filterExpression : (h => true);
             Expression<Func<Hotel, int>> _orderBy = orderByExpression != null ? orderByExpression : (h => h.Id);
             int _page = page != null ? page.Value : 0;
             int _pageSize = pageSize != null ? pageSize.Value : this.hotels.Count(h => true);
