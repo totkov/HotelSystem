@@ -19,5 +19,13 @@
             IRepository<Hotel> hotels = new EfRepository<Hotel>(dbContext);
             return new HotelsService(hotels);
         }
+
+        public static UsersService GetUsersService()
+        {
+            HotelSystemDbContext dbContext = new HotelSystemDbContext();
+            IRepository<User> users = new EfRepository<User>(dbContext);
+            IUnitOfWork uow = new EfUnitOfWork(dbContext);
+            return new UsersService(users, uow);
+        }
     }
 }

@@ -43,6 +43,11 @@
                 .Count();
         }
 
+        public T FirstOrDefault(Expression<Func<T, bool>> filterExpression)
+        {
+            return this.DbSet.FirstOrDefault(filterExpression);
+        }
+
         public void Add(T entity)
         {
             var entry = this.Context.Entry(entity);

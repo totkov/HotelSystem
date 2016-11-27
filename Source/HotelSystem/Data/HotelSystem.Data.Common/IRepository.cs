@@ -17,6 +17,8 @@
 
         int Count(Expression<Func<T, bool>> filterExpression);
 
+        T FirstOrDefault(Expression<Func<T, bool>> filterExpression);
+
         void Add(T entity);
 
         void Delete(T entity);

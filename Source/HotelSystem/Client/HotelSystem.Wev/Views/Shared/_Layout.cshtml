@@ -22,6 +22,24 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 </ul>
+                @if (HotelSystem.Wev.Models.AuthenticationManager.LoggedUser != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a>Hello, @HotelSystem.Wev.Models.AuthenticationManager.LoggedUser.Username</a>
+                        </li>
+                        <li>
+                            <a href="/Autentication/Logout">Log out</a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Log in", "Login", "Autentication")</li>
+                        <li>@Html.ActionLink("Sign Up", "SignUp", "Autentication")</li>
+                    </ul>
+                }
             </div>
         </div>
     </div>

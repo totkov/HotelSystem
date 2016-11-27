@@ -17,12 +17,8 @@
 
         public void AuthenticateUser(string username, string password)
         {
-            this.LoggedUser = users.GetAll(
-                    u => u.Username == username && u.Password == password,
-                    u => u.Id,
-                    0,
-                    1)
-                .First();
+            this.LoggedUser = users
+                .FirstOrDefault(u => u.Username == username && u.Password == password);
         }
     }
 }
