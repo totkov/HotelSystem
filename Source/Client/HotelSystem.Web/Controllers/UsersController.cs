@@ -5,9 +5,11 @@
     using System.Web.Mvc;
     using ViewModels.User;
     using Data.Models;
+    using Filters;
 
     public class UsersController : Controller
     {
+        [OnlyFor(Role = UserRoles.Admin)]
         public ActionResult List()
         {
             UsersService users = ServiceFactory.GetUsersService();
