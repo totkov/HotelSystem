@@ -7,9 +7,9 @@
     using Data.Models;
     using Filters;
 
+    [OnlyFor(Role = UserRoles.Admin)]
     public class UsersController : Controller
     {
-        [OnlyFor(Role = UserRoles.Admin)]
         public ActionResult List()
         {
             UsersService users = ServiceFactory.GetUsersService();
@@ -30,6 +30,36 @@
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(int id)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(UserViewModel user)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return this.RedirectToAction("List");
         }
     }
 }

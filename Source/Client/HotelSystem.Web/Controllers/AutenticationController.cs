@@ -4,7 +4,7 @@
     using Models;
     using Services.Data;
     using System.Web.Mvc;
-    using ViewModels.User;
+    using ViewModels.Autentication;
 
     public class AutenticationController : Controller
     {
@@ -50,8 +50,7 @@
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Address = model.Address,
-                    Phone = model.Phone,
-                    Role = model.Role == null ? UserRoles.Client : model.Role
+                    Phone = model.Phone
                 };
                 users.AddUser(user);
                 this.TempData["State"] = "User is added!";

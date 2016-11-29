@@ -6,6 +6,7 @@
 
 <div>
     <h2>Users</h2>
+    @Html.ActionLink("Add new", "Add")
     <table class="table table-bordered">
         <tr>
             <th>Id</th>
@@ -27,7 +28,10 @@
                 <td>@user.Address</td>
                 <td>@user.Phone</td>
                 <td>@user.Role</td>
-                <td>Not implements</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = user.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = user.Id })
+                </td>
             </tr>
         }
     </table>
