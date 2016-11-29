@@ -37,5 +37,22 @@
 
             return this.users.GetAll(_filterExpression, _orderBy, _page, _pageSize);
         }
+
+        public User GetUserById(int id)
+        {
+            return this.users.FirstOrDefault(u => u.Id == id);
+        }
+
+        public void DeleteUser(User user)
+        {
+            this.users.Delete(user);
+            this.uow.Commit();
+        }
+
+        public void EditeUser(User user)
+        {
+            this.users.Update(user);
+            this.uow.Commit();
+        }
     }
 }
